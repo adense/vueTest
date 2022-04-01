@@ -1,0 +1,21 @@
+<body>
+<!--View层-->
+<div id="app">
+<!--   输入的文本：<input type="text" v-model="message">{{message}}-->
+    <textarea v-model="message"></textarea>
+	<br/>
+   输入文本框内容为：{{message}}
+
+</div>
+
+<!--    导入Vue.js-->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            message: ""
+        }
+    });
+</script>
+</body>

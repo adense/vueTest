@@ -1,0 +1,54 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+<!--    解决闪烁问题-->
+    <style>
+        [v-clock]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<!--View层-->
+<div id="vue" v-clock>
+    <div>{{info.name}}</div>
+    <div>{{info.address}}</div>
+    <div>{{info.links}}</div>
+    <div>{{info.address.city}}</div>
+
+    <a v-bind:href="info.url">博客园</a>
+</div>
+
+<!--    导入Vue.js和axios-->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#vue",
+        data(){//data方法
+          return{
+              //请求的返回参数格式，必须和json字符串一样
+              info: {
+                  name: null,
+                  url: null,
+                  address:{
+                      city: null,
+                      country: null
+                  },
+                  links:[{
+                      name: null,
+                      url: null
+                  }]
+              }
+          }
+        },
+        mounted(){//钩子函数
+            axios.get('data.json').then(response=>(this.info=response.data)).catch(
+			function (error) { // 请求失败处理
+        alert(error);
+      });
+        }
+    });
+</script>
+</body>

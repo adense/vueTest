@@ -1,0 +1,29 @@
+<body>
+<!--View层-->
+<div id="app">
+   <h1 v-if="ok">Yes</h1>
+   <h1 v-else>No</h1>
+</div>
+<div id="app2">
+    <h1 v-if="type==='A'">A</h1>
+    <h1 v-else-if="type==='B'">B</h1>
+    <h1 v-else>C</h1>
+</div>
+
+<!--    导入Vue.js-->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js"></script>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            ok: true
+        }
+    });
+    var vm = new Vue({
+        el:"#app2",
+        data:{
+            type: 'A'
+        }
+    });
+</script>
+</body>

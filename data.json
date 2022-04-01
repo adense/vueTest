@@ -1,0 +1,19 @@
+{
+  "name": "Adense",
+  "url": "www.cnblogs.com",
+  "page": "1",
+  "address": {
+    "city": "成都",
+    "country": "中国"
+  },
+  "links": [
+    {
+      "name": "新浪",
+      "url": "www.sina.com"
+    },
+    {
+      "name": "百度",
+      "url": "www.baidu.com"
+    }
+  ]
+}

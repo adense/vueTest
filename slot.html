@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>slot--废弃</title>
+
+</head>
+<body>
+<!--View层-->
+<div id="app">
+    <tudo>
+        <!--v-bind:简写 :-->
+        <tudo-title slot="tudo-title" :title="title"></tudo-title>
+        <tudo-items slot="tudo-items" v-for="item in tudoItems" :items="item"></tudo-items>
+    </tudo>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js"></script>
+<script>
+    Vue.component("tudo",{
+        template:
+            '<div>\
+            <slot></slot>\
+            <ul>\
+            <slot></slot>\
+            </ul>\
+            </div>'
+    });
+
+    Vue.component("tudo-title",{
+        props: ['title'],
+        template: '<div>{{title}}</div>'
+    });
+
+    Vue.component("tudo-items",{
+        props: ['items'],
+        template: '<li>{{items}}</li>'
+    });
+
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            title: "Adense",
+            tudoItems: ["Java","Python","GoLang"],
+        }
+    });
+</script>
+
+</body>
+</html>
